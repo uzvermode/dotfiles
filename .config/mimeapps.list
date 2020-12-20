@@ -1,0 +1,18 @@
+[Default Applications]
+image/png=viewnior.desktop
+image/jpeg=viewnior.desktop
+application/x-csh=nano.desktop
+image/svg+xml=viewnior.desktop
+x-scheme-handler/magnet=io.github.TransmissionRemoteGtk.desktop
+
+[Added Associations]
+image/png=viewnior.desktop;
+image/jpeg=gimp.desktop;viewnior.desktop;
+text/plain=nvim.desktop;nano.desktop;
+application/x-csh=nano.desktop;
+application/pdf=org.pwmt.zathura.desktop;
+image/vnd.djvu+multipage=org.pwmt.zathura.desktop;
+audio/x-mpegurl=nano.desktop;
+application/xml=nano.desktop;
+image/svg+xml=viewnior.desktop;
+application/x-bittorrent=io.github.TransmissionRemoteGtk.desktop;

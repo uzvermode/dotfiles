@@ -25,6 +25,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'rhysd/vim-clang-format'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'vim-syntastic/syntastic'
 " Plug 'junegunn/goyo.vim'
 " Plug 'PotatoesMaster/i3-vim-syntax'
 " Plug 'jreybert/vimagit'
@@ -52,6 +54,7 @@ call plug#end()
     let NERDTreeShowHidden = 1
   " }}}
   " Coc {{{
+    let g:coc_start_at_startup = v:false
     inoremap <silent><expr> <TAB>
         \ pumvisible() ? coc#_select_confirm() :
         \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -76,6 +79,14 @@ call plug#end()
   "Flutter {{{
     let g:flutter_show_log_on_run = 1
   "}}}
+  "Syntastic {{{
+    let g:syntastic_cpp_checkers = ['cpplint']
+    let g:syntastic_c_checkers = ['cpplint']
+    let g:syntastic_cpp_cpplint_exec = 'cpplint'
+    " The following two lines are optional. Configure it to your liking!
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+  " }}}
     " }}}
 
 " General settings {{{
@@ -141,6 +152,9 @@ endfunction
 map <leader>n :NERDTreeToggle<CR>
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" autocmd filetype c nnoremap <F4> :w <CR> <CR> <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F4> :w <CR> :terminal gcc -Wall -pedantic % -o %< && ./%<<CR> :startinsert <CR>
+" autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 " }}}
 
 " vim: ts=2 sw=2 et

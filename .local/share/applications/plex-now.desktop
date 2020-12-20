@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Plex Now
+Icon=~/.dotfiles/share/icons/plex.png
+Exec=plex-now.py
+Terminal=false
+Categories=AudioVideo;Audio;Video;Player;TV;
