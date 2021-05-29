@@ -8,7 +8,7 @@ local settings = {
   --uses :gsub('pattern', 'replace'), read more http://lua-users.org/wiki/StringLibraryTutorial
   --'all' will match any extension or protocol if it has one
   --uses json and parses it into a lua table to be able to support .conf file
-  
+
   filename_replace = "",
 
 --[=====[ START OF SAMPLE REPLACE, to use remove start and end line
@@ -66,7 +66,7 @@ local settings = {
   playlist_savepath = "/tmp",
 
 
-  --show playlist or filename every time a new file is loaded 
+  --show playlist or filename every time a new file is loaded
   --2 shows playlist, 1 shows current file(filename strip applied) as osd text, 0 shows nothing
   --instead of using this you can also call script-message playlistmanager show playlist/filename
   --ex. KEY playlist-next ; script-message playlistmanager show playlist
@@ -106,6 +106,7 @@ local settings = {
   --read http://docs.aegisub.org/3.2/ASS_Tags/ for reference of tags
   --undeclared tags will use default osd settings
   --these styles will be used for the whole playlist
+  --style_ass_tags = "{\\fnJetBrainsMono Nerd Font\\fs16\\b0\\bord1}",
   style_ass_tags = "{}",
   --paddings from top left corner
   text_padding_x = 10,
@@ -117,8 +118,8 @@ local settings = {
   title_suffix = " - mpv",
 
   --slice long filenames, and how many chars to show
-  slice_longfilenames = false,
-  slice_longfilenames_amount = 70,
+  slice_longfilenames = true,
+  slice_longfilenames_amount = 30,
 
   --Playlist header template
   --%mediatitle or %filename = title or name of playing file
@@ -191,7 +192,7 @@ function on_loaded()
   else
     directory = nil
   end
-  
+
   refresh_globals()
   if settings.sync_cursor_on_load then
     cursor=pos
@@ -390,7 +391,7 @@ function draw_playlist()
     start=0
     showall=true
   end
-  if start > math.max(plen-settings.showamount-1, 0) then 
+  if start > math.max(plen-settings.showamount-1, 0) then
     start=plen-settings.showamount
     showrest=true
   end
@@ -538,7 +539,7 @@ function playlist(force_dir)
         end
       end
     end
-    popen:close()    
+    popen:close()
     if c2 > 0 or c>0 then
       mp.osd_message("Added "..c + c2.." files to playlist")
     else

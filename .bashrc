@@ -77,5 +77,5 @@ day(){
 source /usr/share/fzf/completion.bash && source /usr/share/fzf/key-bindings.bash
 
 # Yarn
-export PATH="$(yarn global bin):$PATH"
+export PATH="$(yarn --offline global bin):$PATH"
 # [ -f ~/.fzf.bash ] && source ~/.fzf.bash

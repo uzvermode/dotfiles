@@ -4,6 +4,7 @@ image/jpeg=viewnior.desktop
 application/x-csh=nano.desktop
 image/svg+xml=viewnior.desktop
 x-scheme-handler/magnet=io.github.TransmissionRemoteGtk.desktop
+image/webp=feh.desktop
 
 [Added Associations]
 image/png=viewnior.desktop;
@@ -16,3 +17,6 @@ audio/x-mpegurl=nano.desktop;
 application/xml=nano.desktop;
 image/svg+xml=viewnior.desktop;
 application/x-bittorrent=io.github.TransmissionRemoteGtk.desktop;
+text/vnd.qt.linguist=mpv.desktop;
+image/webp=viewnior.desktop;feh.desktop;
+image/gif=viewnior.desktop;
